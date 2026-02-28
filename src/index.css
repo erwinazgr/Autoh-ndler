@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  
+  --color-prestige-bg: #f9f8f6;
+  --color-prestige-surface: #ffffff;
+  --color-prestige-text: #1a1a1a;
+  --color-prestige-text-muted: #5c5c5c;
+  --color-prestige-accent: #a67c00;
+  --color-prestige-border: #e5e0d8;
+}
+
+body {
+  background-color: var(--color-prestige-bg);
+  color: var(--color-prestige-text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Hide scrollbar for clean look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-prestige-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+.zoom-container {
+  overflow: hidden;
+}
+.zoom-image {
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.zoom-container:hover .zoom-image {
+  transform: scale(1.08);
+}
+
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(26, 26, 26, 0.2);
+}
