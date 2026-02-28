@@ -37,7 +37,7 @@ export default function HeroSlider() {
   const prevSlide = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-[var(--color-brand-primary)]">
+    <div className="relative h-screen w-full overflow-hidden bg-[var(--color-brand-bg)]">
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -47,11 +47,11 @@ export default function HeroSlider() {
           transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="absolute inset-0"
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#0C0A09] z-10" />
           <img
             src={slides[current].image}
             alt={slides[current].title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover brightness-75"
             referrerPolicy="no-referrer"
           />
         </motion.div>
@@ -70,10 +70,10 @@ export default function HeroSlider() {
             <p className="font-accent italic text-2xl md:text-4xl text-[var(--color-brand-cta)] mb-6">
               {slides[current].subtitle}
             </p>
-            <h1 className="font-heading text-7xl md:text-9xl lg:text-[12rem] font-bold text-white leading-none mb-12 tracking-tight">
+            <h1 className="font-heading text-7xl md:text-9xl lg:text-[12rem] font-bold text-[var(--color-brand-text)] leading-none mb-12 tracking-tight drop-shadow-2xl">
               {slides[current].title}
             </h1>
-            <button className="bg-[var(--color-brand-cta)] text-white px-10 py-4 text-sm tracking-[0.2em] uppercase font-bold hover-lift ripple-btn">
+            <button className="bg-[var(--color-brand-cta)] text-[var(--color-brand-bg)] px-10 py-4 text-sm tracking-[0.2em] uppercase font-bold hover-lift ripple-btn">
               Entdecken
             </button>
           </motion.div>
@@ -81,10 +81,10 @@ export default function HeroSlider() {
       </div>
 
       <div className="absolute bottom-12 right-12 z-30 flex gap-4">
-        <button onClick={prevSlide} className="w-14 h-14 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors duration-300 text-white hover-glow">
+        <button onClick={prevSlide} className="w-14 h-14 rounded-full border border-[var(--color-brand-accent)] flex items-center justify-center hover:bg-[var(--color-brand-surface)] transition-colors duration-300 text-[var(--color-brand-text)] hover-glow">
           <ChevronLeft className="w-6 h-6" />
         </button>
-        <button onClick={nextSlide} className="w-14 h-14 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors duration-300 text-white hover-glow">
+        <button onClick={nextSlide} className="w-14 h-14 rounded-full border border-[var(--color-brand-accent)] flex items-center justify-center hover:bg-[var(--color-brand-surface)] transition-colors duration-300 text-[var(--color-brand-text)] hover-glow">
           <ChevronRight className="w-6 h-6" />
         </button>
       </div>
@@ -93,7 +93,7 @@ export default function HeroSlider() {
         {slides.map((_, idx) => (
           <div 
             key={idx} 
-            className={`h-1 transition-all duration-500 ${idx === current ? 'w-16 bg-[var(--color-brand-cta)]' : 'w-6 bg-white/30'}`}
+            className={`h-1 transition-all duration-500 ${idx === current ? 'w-16 bg-[var(--color-brand-cta)]' : 'w-6 bg-[var(--color-brand-accent)]/50'}`}
           />
         ))}
       </div>

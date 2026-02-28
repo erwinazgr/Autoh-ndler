@@ -22,16 +22,16 @@ export default function StorySection() {
           
           <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 text-[var(--color-brand-text)]">
             Mehr als nur <br />
-            <span className="font-accent italic font-light text-[var(--color-brand-accent)]">Automobile.</span>
+            <span className="font-accent italic font-light text-[var(--color-brand-cta)]">Automobile.</span>
           </h2>
           
-          <p className="font-body text-[var(--color-brand-text)] font-light leading-relaxed mb-8 text-lg">
+          <p className="font-body text-[var(--color-brand-text-muted)] font-light leading-relaxed mb-8 text-lg">
             Bei Prestige Motors verstehen wir, dass ein Fahrzeug mehr ist als ein Fortbewegungsmittel. 
             Es ist Ausdruck von Persönlichkeit, ein Kunstwerk der Ingenieurskunst und die Erfüllung 
             eines Traums.
           </p>
           
-          <p className="font-body text-[var(--color-brand-accent)] font-light leading-relaxed mb-12 text-lg">
+          <p className="font-body text-[var(--color-brand-text-muted)] font-light leading-relaxed mb-12 text-lg">
             Seit über zwei Jahrzehnten kuratieren wir die exklusivsten Sport- und Luxuswagen 
             der Welt. Jedes Fahrzeug in unserer Kollektion wird mit größter Sorgfalt geprüft 
             und ausgewählt, um höchsten Ansprüchen gerecht zu werden.
@@ -54,7 +54,7 @@ export default function StorySection() {
             <img 
               src="https://images.unsplash.com/photo-1503376713251-850f22167055?q=80&w=2000&auto=format&fit=crop" 
               alt="Porsche Detail" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover brightness-75 hover:brightness-100 transition-all duration-700"
               referrerPolicy="no-referrer"
             />
           </motion.div>
@@ -69,7 +69,7 @@ export default function StorySection() {
             <img 
               src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&w=2000&auto=format&fit=crop" 
               alt="Aston Martin Detail" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover brightness-75 hover:brightness-100 transition-all duration-700"
               referrerPolicy="no-referrer"
             />
           </motion.div>

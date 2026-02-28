@@ -44,7 +44,7 @@ export default function ServicesSection() {
             <div className="h-[1px] w-12 bg-[var(--color-brand-cta)]" />
           </div>
           <h2 className="font-heading text-5xl md:text-6xl font-bold text-[var(--color-brand-text)]">
-            Unser <span className="font-accent italic font-light text-[var(--color-brand-accent)]">Service</span>
+            Unser <span className="font-accent italic font-light text-[var(--color-brand-cta)]">Service</span>
           </h2>
         </motion.div>
 
@@ -56,13 +56,13 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 + (idx * 0.1) }}
-              className="flex flex-col items-center text-center group bg-white p-10 border-beam hover-lift shadow-sm"
+              className="flex flex-col items-center text-center group bg-[var(--color-brand-surface)] p-10 border-beam hover-lift shadow-sm"
             >
-              <div className="w-20 h-20 rounded-full border border-[var(--color-brand-accent)]/20 flex items-center justify-center mb-8 text-[var(--color-brand-cta)] group-hover:bg-[var(--color-brand-cta)] group-hover:text-white transition-all duration-300">
+              <div className="w-20 h-20 rounded-full border border-[var(--color-brand-accent)]/50 flex items-center justify-center mb-8 text-[var(--color-brand-cta)] group-hover:bg-[var(--color-brand-cta)] group-hover:text-[var(--color-brand-bg)] transition-all duration-300">
                 {service.icon}
               </div>
               <h3 className="font-heading text-2xl font-bold mb-4 text-[var(--color-brand-text)]">{service.title}</h3>
-              <p className="font-body text-[var(--color-brand-accent)] font-light text-sm leading-relaxed">
+              <p className="font-body text-[var(--color-brand-text-muted)] font-light text-sm leading-relaxed">
                 {service.description}
               </p>
             </motion.div>

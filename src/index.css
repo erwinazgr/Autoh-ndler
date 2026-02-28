@@ -6,11 +6,12 @@
   --font-body: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-accent: "Cormorant Garamond", ui-serif, Georgia, serif;
   
-  --color-brand-primary: #1C1917; /* Stone Dark */
-  --color-brand-cta: #CA8A04; /* Gold */
-  --color-brand-bg: #FAFAF9; /* Cream */
-  --color-brand-text: #292524; /* Warm Black */
-  --color-brand-accent: #78716C; /* Taupe */
+  --color-brand-bg: #0C0A09; /* Deep dark stone/black */
+  --color-brand-surface: #1C1917; /* Stone Dark for cards */
+  --color-brand-text: #FAFAF9; /* Cream for headings */
+  --color-brand-text-muted: #A8A29E; /* Muted stone for body text */
+  --color-brand-cta: #D4AF37; /* Classic Gold */
+  --color-brand-accent: #44403C; /* Dark taupe for borders */
 }
 
 body {
@@ -27,18 +28,18 @@ body {
 
 /* Hover Effects */
 .hover-lift {
-  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hover-lift:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 10px 25px -5px rgba(28, 25, 23, 0.1), 0 8px 10px -6px rgba(28, 25, 23, 0.1);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 10px 20px -5px rgba(0, 0, 0, 0.3);
 }
 
 .hover-glow {
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hover-glow:hover {
-  box-shadow: 0 0 20px var(--color-brand-cta);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
 .border-beam {
@@ -49,17 +50,17 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 2px;
+  padding: 1px;
   background: linear-gradient(45deg, transparent, var(--color-brand-cta), transparent);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
-  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
 }
 .border-beam:hover::after {
-  opacity: 1;
+  opacity: 0.5;
 }
 
 /* Ripple Effect */
@@ -74,7 +75,7 @@ body {
   left: 50%;
   width: 150%;
   padding-top: 150%;
-  background: radial-gradient(circle, rgba(255,255,255,0.4) 10%, transparent 10.01%);
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 10%, transparent 10.01%);
   transform: translate(-50%, -50%) scale(0);
   opacity: 0;
   transition: transform 0.5s, opacity 0.5s;
@@ -98,7 +99,7 @@ body {
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--color-brand-bg); }
 ::-webkit-scrollbar-thumb { background: var(--color-brand-accent); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-brand-primary); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-brand-text-muted); }
 
 /* Respect User Preferences */
 @media (prefers-reduced-motion: reduce) {
