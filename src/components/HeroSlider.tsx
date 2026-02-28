@@ -6,19 +6,19 @@ const slides = [
   {
     id: 1,
     image: 'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&w=2000&auto=format&fit=crop',
-    title: 'PORSCHE 911 GT3 RS',
+    title: 'PORSCHE',
     subtitle: 'Rennsport für die Straße',
   },
   {
     id: 2,
     image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070&auto=format&fit=crop',
-    title: 'FERRARI F8 TRIBUTO',
+    title: 'FERRARI',
     subtitle: 'Die V8-Legende',
   },
   {
     id: 3,
     image: 'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2069&auto=format&fit=crop',
-    title: 'ASTON MARTIN DBS',
+    title: 'ASTON',
     subtitle: 'Britische Eleganz',
   }
 ];
@@ -37,7 +37,7 @@ export default function HeroSlider() {
   const prevSlide = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-black">
+    <div className="relative h-screen w-full overflow-hidden bg-[var(--color-brand-primary)]">
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -47,7 +47,7 @@ export default function HeroSlider() {
           transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="absolute inset-0"
         >
-          <div className="absolute inset-0 bg-black/40 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80 z-10" />
           <img
             src={slides[current].image}
             alt={slides[current].title}
@@ -61,46 +61,39 @@ export default function HeroSlider() {
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
-            initial={{ y: 30, opacity: 0 }}
+            initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -30, opacity: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            exit={{ y: -20, opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            className="relative flex flex-col items-center"
           >
-            <p className="text-[var(--color-prestige-accent)] text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-medium">
+            <p className="font-accent italic text-2xl md:text-4xl text-[var(--color-brand-cta)] mb-6">
               {slides[current].subtitle}
             </p>
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-white mb-8">
+            <h1 className="font-heading text-7xl md:text-9xl lg:text-[12rem] font-bold text-white leading-none mb-12 tracking-tight">
               {slides[current].title}
             </h1>
-            <button className="border border-white/30 hover:border-white/80 hover:bg-white/10 transition-all duration-300 px-8 py-3 rounded-full text-sm tracking-widest uppercase">
+            <button className="bg-[var(--color-brand-cta)] text-white px-10 py-4 text-sm tracking-[0.2em] uppercase font-bold hover-lift ripple-btn">
               Entdecken
             </button>
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Controls */}
       <div className="absolute bottom-12 right-12 z-30 flex gap-4">
-        <button 
-          onClick={prevSlide}
-          className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors backdrop-blur-sm"
-        >
-          <ChevronLeft className="w-5 h-5 text-white" />
+        <button onClick={prevSlide} className="w-14 h-14 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors duration-300 text-white hover-glow">
+          <ChevronLeft className="w-6 h-6" />
         </button>
-        <button 
-          onClick={nextSlide}
-          className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors backdrop-blur-sm"
-        >
-          <ChevronRight className="w-5 h-5 text-white" />
+        <button onClick={nextSlide} className="w-14 h-14 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors duration-300 text-white hover-glow">
+          <ChevronRight className="w-6 h-6" />
         </button>
       </div>
 
-      {/* Progress Indicators */}
-      <div className="absolute bottom-12 left-12 z-30 flex gap-2">
+      <div className="absolute bottom-12 left-12 z-30 flex gap-3">
         {slides.map((_, idx) => (
           <div 
             key={idx} 
-            className={`h-1 transition-all duration-500 rounded-full ${idx === current ? 'w-12 bg-[var(--color-prestige-accent)]' : 'w-4 bg-white/30'}`}
+            className={`h-1 transition-all duration-500 ${idx === current ? 'w-16 bg-[var(--color-brand-cta)]' : 'w-6 bg-white/30'}`}
           />
         ))}
       </div>

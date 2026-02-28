@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[var(--color-prestige-bg)] text-[var(--color-prestige-text)]">
+    <div className="min-h-screen">
       <Navbar />
       <main>
         <HeroSlider />

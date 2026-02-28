@@ -3,43 +3,41 @@ import { Instagram, Facebook, Twitter, MapPin, Phone, Mail } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--color-prestige-surface)] pt-24 pb-12 border-t border-[var(--color-prestige-border)]" id="kontakt">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+    <footer className="bg-[var(--color-brand-primary)] pt-32 pb-12" id="kontakt">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
         
-        {/* Brand */}
         <div>
-          <a href="#" className="flex items-center gap-2 mb-8 group">
-            <div className="w-10 h-10 flex items-center justify-center border border-[var(--color-prestige-accent)] rounded-sm group-hover:bg-[var(--color-prestige-accent)] transition-colors">
-              <span className="font-serif text-2xl font-bold text-[var(--color-prestige-accent)] group-hover:text-white">P</span>
+          <a href="#" className="flex items-center gap-3 mb-8 group">
+            <div className="w-12 h-12 flex items-center justify-center border border-[var(--color-brand-cta)] rounded-sm group-hover:bg-[var(--color-brand-cta)] transition-colors duration-300">
+              <span className="font-heading text-3xl font-bold text-[var(--color-brand-cta)] group-hover:text-white">P</span>
             </div>
-            <span className="font-serif text-2xl tracking-widest uppercase text-[var(--color-prestige-text)]">
-              Prestige <span className="text-[var(--color-prestige-accent)]">Motors</span>
+            <span className="font-heading text-3xl tracking-widest uppercase font-bold text-[var(--color-brand-bg)]">
+              Prestige <span className="font-accent italic text-[var(--color-brand-cta)] lowercase text-2xl">motors</span>
             </span>
           </a>
-          <p className="text-[var(--color-prestige-text-muted)] font-light leading-relaxed mb-8 text-sm">
+          <p className="font-body text-[var(--color-brand-accent)] font-light leading-relaxed mb-10 text-sm">
             Ihr exklusiver Partner für Premium-Sportwagen und Luxusautomobile. 
             Wir verwirklichen automobile Träume mit Leidenschaft und Expertise.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="w-10 h-10 rounded-full border border-[var(--color-prestige-border)] flex items-center justify-center text-[var(--color-prestige-text-muted)] hover:bg-[var(--color-prestige-accent)] hover:text-white hover:border-[var(--color-prestige-accent)] transition-all">
-              <Instagram className="w-4 h-4" />
+            <a href="#" className="w-12 h-12 rounded-full border border-[var(--color-brand-accent)]/30 flex items-center justify-center text-[var(--color-brand-bg)] hover:bg-[var(--color-brand-cta)] hover:border-[var(--color-brand-cta)] transition-all duration-300 hover-lift">
+              <Instagram className="w-5 h-5" />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full border border-[var(--color-prestige-border)] flex items-center justify-center text-[var(--color-prestige-text-muted)] hover:bg-[var(--color-prestige-accent)] hover:text-white hover:border-[var(--color-prestige-accent)] transition-all">
-              <Facebook className="w-4 h-4" />
+            <a href="#" className="w-12 h-12 rounded-full border border-[var(--color-brand-accent)]/30 flex items-center justify-center text-[var(--color-brand-bg)] hover:bg-[var(--color-brand-cta)] hover:border-[var(--color-brand-cta)] transition-all duration-300 hover-lift">
+              <Facebook className="w-5 h-5" />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full border border-[var(--color-prestige-border)] flex items-center justify-center text-[var(--color-prestige-text-muted)] hover:bg-[var(--color-prestige-accent)] hover:text-white hover:border-[var(--color-prestige-accent)] transition-all">
-              <Twitter className="w-4 h-4" />
+            <a href="#" className="w-12 h-12 rounded-full border border-[var(--color-brand-accent)]/30 flex items-center justify-center text-[var(--color-brand-bg)] hover:bg-[var(--color-brand-cta)] hover:border-[var(--color-brand-cta)] transition-all duration-300 hover-lift">
+              <Twitter className="w-5 h-5" />
             </a>
           </div>
         </div>
 
-        {/* Quick Links */}
         <div>
-          <h4 className="text-[var(--color-prestige-text)] font-serif text-xl mb-8">Navigation</h4>
-          <ul className="space-y-4">
+          <h4 className="text-[var(--color-brand-bg)] font-heading text-2xl mb-8 font-bold">Navigation</h4>
+          <ul className="space-y-5">
             {['Startseite', 'Kollektion', 'Philosophie', 'Service', 'Kontakt'].map((link) => (
               <li key={link}>
-                <a href={`#${link.toLowerCase()}`} className="text-[var(--color-prestige-text-muted)] hover:text-[var(--color-prestige-accent)] transition-colors text-sm uppercase tracking-widest">
+                <a href={`#${link.toLowerCase()}`} className="font-body text-[var(--color-brand-accent)] hover:text-[var(--color-brand-cta)] transition-colors text-sm uppercase tracking-widest font-bold">
                   {link}
                 </a>
               </li>
@@ -47,48 +45,46 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact */}
         <div>
-          <h4 className="text-[var(--color-prestige-text)] font-serif text-xl mb-8">Kontakt</h4>
+          <h4 className="text-[var(--color-brand-bg)] font-heading text-2xl mb-8 font-bold">Kontakt</h4>
           <ul className="space-y-6">
-            <li className="flex items-start gap-4">
-              <MapPin className="w-5 h-5 text-[var(--color-prestige-accent)] shrink-0 mt-1" />
-              <span className="text-[var(--color-prestige-text-muted)] text-sm leading-relaxed">
+            <li className="flex items-start gap-5">
+              <MapPin className="w-6 h-6 text-[var(--color-brand-cta)] shrink-0 mt-1" />
+              <span className="font-body text-[var(--color-brand-accent)] text-sm leading-relaxed font-light">
                 Königsallee 1<br />
                 40212 Düsseldorf<br />
                 Deutschland
               </span>
             </li>
-            <li className="flex items-center gap-4">
-              <Phone className="w-5 h-5 text-[var(--color-prestige-accent)] shrink-0" />
-              <span className="text-[var(--color-prestige-text-muted)] text-sm">
+            <li className="flex items-center gap-5">
+              <Phone className="w-6 h-6 text-[var(--color-brand-cta)] shrink-0" />
+              <span className="font-body text-[var(--color-brand-accent)] text-sm font-light">
                 +49 (0) 211 123 456
               </span>
             </li>
-            <li className="flex items-center gap-4">
-              <Mail className="w-5 h-5 text-[var(--color-prestige-accent)] shrink-0" />
-              <span className="text-[var(--color-prestige-text-muted)] text-sm">
+            <li className="flex items-center gap-5">
+              <Mail className="w-6 h-6 text-[var(--color-brand-cta)] shrink-0" />
+              <span className="font-body text-[var(--color-brand-accent)] text-sm font-light">
                 info@prestige-motors.de
               </span>
             </li>
           </ul>
         </div>
 
-        {/* Newsletter */}
         <div>
-          <h4 className="text-[var(--color-prestige-text)] font-serif text-xl mb-8">Newsletter</h4>
-          <p className="text-[var(--color-prestige-text-muted)] font-light leading-relaxed mb-6 text-sm">
+          <h4 className="text-[var(--color-brand-bg)] font-heading text-2xl mb-8 font-bold">Newsletter</h4>
+          <p className="font-body text-[var(--color-brand-accent)] font-light leading-relaxed mb-8 text-sm">
             Abonnieren Sie unseren Newsletter für exklusive Angebote und Neuigkeiten.
           </p>
           <form className="flex flex-col gap-4">
             <input 
               type="email" 
               placeholder="Ihre E-Mail Adresse" 
-              className="bg-transparent border-b border-[var(--color-prestige-border)] py-3 text-sm text-[var(--color-prestige-text)] focus:outline-none focus:border-[var(--color-prestige-accent)] transition-colors placeholder:text-gray-400"
+              className="bg-transparent border-b border-[var(--color-brand-accent)]/50 py-4 text-sm text-[var(--color-brand-bg)] focus:outline-none focus:border-[var(--color-brand-cta)] transition-colors placeholder:text-[var(--color-brand-accent)] font-body"
             />
             <button 
               type="submit" 
-              className="text-left text-sm uppercase tracking-widest text-[var(--color-prestige-accent)] hover:text-[var(--color-prestige-text)] transition-colors font-medium mt-2"
+              className="text-left py-2 font-body text-sm uppercase tracking-widest text-[var(--color-brand-cta)] hover:text-[var(--color-brand-bg)] transition-colors font-bold mt-4"
             >
               Abonnieren
             </button>
@@ -96,13 +92,13 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-[var(--color-prestige-border)] flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-[var(--color-prestige-text-muted)] text-xs uppercase tracking-widest">
+      <div className="max-w-7xl mx-auto px-6 pt-10 border-t border-[var(--color-brand-accent)]/20 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p className="font-body text-[var(--color-brand-accent)] text-xs uppercase tracking-widest font-bold">
           &copy; {new Date().getFullYear()} Prestige Motors. Alle Rechte vorbehalten.
         </p>
-        <div className="flex gap-6">
-          <a href="#" className="text-[var(--color-prestige-text-muted)] hover:text-[var(--color-prestige-accent)] transition-colors text-xs uppercase tracking-widest">Impressum</a>
-          <a href="#" className="text-[var(--color-prestige-text-muted)] hover:text-[var(--color-prestige-accent)] transition-colors text-xs uppercase tracking-widest">Datenschutz</a>
+        <div className="flex gap-8">
+          <a href="#" className="font-body text-[var(--color-brand-accent)] hover:text-[var(--color-brand-cta)] transition-colors text-xs uppercase tracking-widest font-bold">Impressum</a>
+          <a href="#" className="font-body text-[var(--color-brand-accent)] hover:text-[var(--color-brand-cta)] transition-colors text-xs uppercase tracking-widest font-bold">Datenschutz</a>
         </div>
       </div>
     </footer>

@@ -7,56 +7,66 @@ export default function CarGallery() {
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
 
   return (
-    <section className="py-24 bg-[var(--color-prestige-surface)] relative border-y border-[var(--color-prestige-border)]" id="kollektion">
+    <section className="py-32 bg-white relative" id="kollektion">
       <div className="max-w-[1400px] mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-          <div>
-            <h2 className="font-serif text-5xl md:text-6xl font-light mb-4 text-[var(--color-prestige-text)]">
-              Unsere <span className="italic text-[var(--color-prestige-accent)]">Kollektion</span>
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          >
+            <h2 className="font-heading text-5xl md:text-7xl font-bold mb-6 text-[var(--color-brand-text)]">
+              Unsere <span className="font-accent italic font-light text-[var(--color-brand-cta)]">Kollektion</span>
             </h2>
-            <p className="text-[var(--color-prestige-text-muted)] font-light max-w-xl">
+            <p className="font-body text-[var(--color-brand-accent)] font-light max-w-xl text-lg">
               Entdecken Sie unsere handverlesene Auswahl an exklusiven Fahrzeugen. 
               Jedes Modell repräsentiert die Spitze automobiler Ingenieurskunst.
             </p>
-          </div>
-          <button className="mt-8 md:mt-0 text-sm uppercase tracking-widest border-b border-[var(--color-prestige-border)] pb-1 text-[var(--color-prestige-text)] hover:border-[var(--color-prestige-accent)] hover:text-[var(--color-prestige-accent)] transition-colors">
+          </motion.div>
+          <motion.button 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="mt-8 md:mt-0 font-body text-sm uppercase tracking-widest border-b-2 border-[var(--color-brand-cta)] pb-1 text-[var(--color-brand-text)] hover:text-[var(--color-brand-cta)] transition-colors font-bold"
+          >
             Alle ansehen
-          </button>
+          </motion.button>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {cars.map((car, idx) => (
             <motion.div
               key={car.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="group cursor-pointer relative overflow-hidden rounded-sm bg-[var(--color-prestige-bg)] shadow-sm hover:shadow-xl transition-shadow duration-500"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 + (idx * 0.1) }}
+              className="group cursor-pointer relative bg-[var(--color-brand-bg)] hover-lift"
               onClick={() => setSelectedCar(car)}
             >
-              <div className="aspect-[16/10] zoom-container">
+              <div className="aspect-[16/10] overflow-hidden relative">
                 <img
                   src={car.image}
                   alt={`${car.brand} ${car.model}`}
-                  className="w-full h-full object-cover zoom-image opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
               </div>
 
-              <div className="absolute bottom-0 left-0 w-full p-8 flex justify-between items-end">
+              <div className="p-8 flex justify-between items-end bg-[var(--color-brand-bg)] border border-t-0 border-[var(--color-brand-accent)]/10">
                 <div>
-                  <p className="text-[var(--color-prestige-accent)] text-xs uppercase tracking-[0.2em] font-semibold mb-2 drop-shadow-md">
+                  <p className="font-body text-[var(--color-brand-cta)] text-xs uppercase tracking-[0.2em] font-bold mb-3">
                     {car.brand}
                   </p>
-                  <h3 className="font-serif text-3xl font-light text-white drop-shadow-md">
+                  <h3 className="font-heading text-3xl font-bold text-[var(--color-brand-text)]">
                     {car.model}
                   </h3>
                 </div>
-                <div className="w-10 h-10 rounded-full border border-white/50 flex items-center justify-center backdrop-blur-sm bg-white/10 group-hover:bg-white group-hover:text-black transition-all duration-300 text-white">
-                  <ZoomIn className="w-4 h-4" />
+                <div className="w-12 h-12 rounded-full border border-[var(--color-brand-accent)]/30 flex items-center justify-center group-hover:bg-[var(--color-brand-cta)] group-hover:border-[var(--color-brand-cta)] group-hover:text-white transition-all duration-300 text-[var(--color-brand-text)]">
+                  <ZoomIn className="w-5 h-5" />
                 </div>
               </div>
             </motion.div>
@@ -64,75 +74,69 @@ export default function CarGallery() {
         </div>
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
         {selectedCar && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-md p-4 md:p-8"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--color-brand-primary)]/90 backdrop-blur-sm p-4 md:p-8"
           >
             <motion.div
               initial={{ y: 50, opacity: 0, scale: 0.95 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: 20, opacity: 0, scale: 0.95 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-[var(--color-prestige-surface)] w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-sm flex flex-col lg:flex-row shadow-2xl border border-[var(--color-prestige-border)]"
+              transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+              className="bg-[var(--color-brand-bg)] w-full max-w-6xl max-h-[90vh] overflow-y-auto flex flex-col lg:flex-row shadow-2xl"
             >
-              {/* Close Button */}
               <button
                 onClick={() => setSelectedCar(null)}
-                className="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm border border-[var(--color-prestige-border)] flex items-center justify-center text-[var(--color-prestige-text)] hover:bg-[var(--color-prestige-accent)] hover:text-white hover:border-[var(--color-prestige-accent)] transition-all shadow-sm"
+                className="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-white flex items-center justify-center text-[var(--color-brand-text)] hover:bg-[var(--color-brand-cta)] hover:text-white transition-all shadow-lg hover-lift"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              {/* Image Section */}
-              <div className="w-full lg:w-3/5 h-[40vh] lg:h-auto relative zoom-container">
+              <div className="w-full lg:w-3/5 h-[40vh] lg:h-auto relative overflow-hidden">
                 <img
                   src={selectedCar.image}
                   alt={selectedCar.model}
-                  className="w-full h-full object-cover zoom-image"
+                  className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-prestige-surface)] to-transparent lg:hidden" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[var(--color-prestige-surface)] hidden lg:block" />
               </div>
 
-              {/* Details Section */}
-              <div className="w-full lg:w-2/5 p-8 lg:p-12 flex flex-col justify-center bg-[var(--color-prestige-surface)]">
-                <p className="text-[var(--color-prestige-accent)] text-xs uppercase tracking-[0.2em] font-semibold mb-3">
+              <div className="w-full lg:w-2/5 p-10 lg:p-14 flex flex-col justify-center bg-[var(--color-brand-bg)]">
+                <p className="font-body text-[var(--color-brand-cta)] text-xs uppercase tracking-[0.2em] font-bold mb-4">
                   {selectedCar.brand}
                 </p>
-                <h2 className="font-serif text-4xl lg:text-5xl font-light mb-6 text-[var(--color-prestige-text)]">
+                <h2 className="font-heading text-5xl lg:text-6xl font-bold mb-8 text-[var(--color-brand-text)]">
                   {selectedCar.model}
                 </h2>
                 
-                <p className="text-[var(--color-prestige-text-muted)] font-light leading-relaxed mb-10 text-sm lg:text-base">
+                <p className="font-body text-[var(--color-brand-accent)] font-light leading-relaxed mb-12 text-base">
                   {selectedCar.description}
                 </p>
 
-                <div className="grid grid-cols-2 gap-y-8 gap-x-4 mb-12">
+                <div className="grid grid-cols-2 gap-y-10 gap-x-6 mb-14 border-t border-b border-[var(--color-brand-accent)]/20 py-8">
                   <div>
-                    <p className="text-xs text-[var(--color-prestige-text-muted)] uppercase tracking-widest mb-1">Leistung</p>
-                    <p className="font-mono text-lg text-[var(--color-prestige-text)]">{selectedCar.specs.power}</p>
+                    <p className="font-body text-xs text-[var(--color-brand-accent)] uppercase tracking-widest mb-2 font-bold">Leistung</p>
+                    <p className="font-heading text-xl text-[var(--color-brand-text)] font-bold">{selectedCar.specs.power}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-[var(--color-prestige-text-muted)] uppercase tracking-widest mb-1">0-100 km/h</p>
-                    <p className="font-mono text-lg text-[var(--color-prestige-text)]">{selectedCar.specs.acceleration}</p>
+                    <p className="font-body text-xs text-[var(--color-brand-accent)] uppercase tracking-widest mb-2 font-bold">0-100 km/h</p>
+                    <p className="font-heading text-xl text-[var(--color-brand-text)] font-bold">{selectedCar.specs.acceleration}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-[var(--color-prestige-text-muted)] uppercase tracking-widest mb-1">Motor</p>
-                    <p className="font-mono text-lg text-[var(--color-prestige-text)]">{selectedCar.specs.engine}</p>
+                    <p className="font-body text-xs text-[var(--color-brand-accent)] uppercase tracking-widest mb-2 font-bold">Motor</p>
+                    <p className="font-heading text-xl text-[var(--color-brand-text)] font-bold">{selectedCar.specs.engine}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-[var(--color-prestige-text-muted)] uppercase tracking-widest mb-1">Preis</p>
-                    <p className="font-mono text-lg text-[var(--color-prestige-accent)]">{selectedCar.price}</p>
+                    <p className="font-body text-xs text-[var(--color-brand-accent)] uppercase tracking-widest mb-2 font-bold">Preis</p>
+                    <p className="font-heading text-xl text-[var(--color-brand-cta)] font-bold">{selectedCar.price}</p>
                   </div>
                 </div>
 
-                <button className="w-full py-4 border border-[var(--color-prestige-accent)] text-[var(--color-prestige-accent)] hover:bg-[var(--color-prestige-accent)] hover:text-white transition-colors uppercase tracking-widest text-sm font-medium">
+                <button className="w-full py-5 bg-[var(--color-brand-primary)] text-white hover:bg-[var(--color-brand-cta)] transition-colors uppercase tracking-widest text-sm font-bold ripple-btn">
                   Anfrage Senden
                 </button>
               </div>
